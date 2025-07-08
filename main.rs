@@ -13,7 +13,7 @@ struct Config {
 impl Config {
     fn new(args: &[String]) -> Result<Config, String> {
         if args.len() < 3 {
-            return Err(format!("Usage: {} pattern file (or files [-i])", args[0]));
+            return Err(format!("Usage: {} pattern file (or files) [-i]", args[0]));
         }
 
         let mut case_insensitive = false;
@@ -27,6 +27,8 @@ impl Config {
             }
         }
 
+        // Should be fixed:
+        // Triggered in the rare case the user types: cargo run -- -i -i
         if non_flag_args.is_empty() {
             return Err("Error: Pattern not provided.".to_string());
         }
@@ -34,7 +36,7 @@ impl Config {
         let pattern = non_flag_args[0].clone();
 
         if non_flag_args.len() < 2 {
-            return Err("Error; No input files provided.".to_string());
+            return Err("Error: No input files provided.".to_string());
         }
 
         let files = non_flag_args[1..].to_vec();
