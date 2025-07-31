@@ -75,7 +75,7 @@ fn grep(reader: &mut BufReader<File>, pattern: &str, case_insensitive: bool) {
 fn grep_file(file: &str, config: &Config) {
     match File::open(file) {
         Ok(f) => {
-            let mut reader = BufReader::new(f);
+            let mut reader: BufReader<File> = BufReader::new(f);
             grep(&mut reader, &config.pattern, config.case_insensitive);
         }
         Err(e) => {
