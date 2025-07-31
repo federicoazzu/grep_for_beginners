@@ -1,5 +1,7 @@
 # grep_for_beginners
 
+The basic search text 
+
 This project is developed in **Rust** based on the following resources:
 
 - 📺 [YouTube Video Tutorial](https://www.youtube.com/watch?v=PX4dEky1pxA)
@@ -25,7 +27,7 @@ cargo run -- bob text1.txt text2.txt -i
 
 ## Arguments
 
-1. **Username** (e.g. `bob`)
+1. **Text to search** (e.g. `bob`)
 2. **Data file(s)** - at least one `.txt` file
 3. Additional option(s):
    - `-i` : enable ignore-case
